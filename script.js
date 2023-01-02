@@ -24,29 +24,14 @@ document.querySelector('.check').addEventListener('click',function(){
             document.querySelector('.highscore').textContent=highscore;
            }
       
-    }
-    else if(guess>secretNumber){
-        document.querySelector('.message').textContent="📈 Too Hight";
-        score--;
+    }else if(guess!==secretNumber){
         if(score >0){
+            document.querySelector('.message').textContent=guess>secretNumber?"📈 Too Hight":"📉 Too low";
+            score--;
             document.querySelector('.score').textContent=score;
         }
-        else{
-            document.querySelector('.message').textContent="You lose the Game";  
-            document.querySelector('.score').textContent=0;
-        }
     }
-    else if(guess<secretNumber){
-        document.querySelector('.message').textContent="📉 Too low";
-        score--;
-        if(score>0){
-            document.querySelector('.score').textContent=score;
-        }
-        else{
-            document.querySelector('.message').textContent="You lose the Game";  
-            document.querySelector('.score').textContent=0; 
-        }
-    }
+   
 });
 document.querySelector('.again').addEventListener('click',function(){
     score=20;
